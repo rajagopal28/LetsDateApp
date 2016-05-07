@@ -6,21 +6,16 @@
     <div data-role="tabs" id="tabs">
       <div data-role="navbar">
         <ul>
-          <li><a href="#map-tab" data-ajax="false">one</a></li>
-          <li><a href="#place-list-tab" data-ajax="false">two</a></li>
+          <li><a href="#map-tab" class="ui-btn-active" data-ajax="false">Map</a></li>
+          <li><a href="#place-list-tab" data-ajax="false">List</a></li>
         </ul>
       </div>
       <div id="map-tab" class="ui-body-d ui-content">
-        <h1>First tab contents</h1>
+        <h1 class="map-tab-desc"><span class="map-place-type"></span>s around you and <span class="partner-name"></span></h1>
         <div class="map-container"></div>
       </div>
       <div id="place-list-tab">
         <ul id="location-list" data-role="listview" data-inset="true">
-            <li><a href="#">Acura</a></li>
-            <li><a href="#">Audi</a></li>
-            <li><a href="#">BMW</a></li>
-            <li><a href="#">Cadillac</a></li>
-            <li><a href="#">Ferrari</a></li>
         </ul>
       </div>
     </div>

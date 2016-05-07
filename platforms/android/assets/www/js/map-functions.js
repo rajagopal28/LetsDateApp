@@ -1,9 +1,9 @@
 function onMapsApiLoaded() {
   console.log('Map loaded');
 }
-function initMap(mapContainer, centre, keyword, typeOfPlace, myLocation, partnerLocation, partnerName) {
+function initMap(mapContainer, centre, myLocation, partnerLocation, partnerName) {
    // Specify location, radius and place types for your Places API search.
-   var theCentre = new google.maps.LatLng(centre.lat, centre.lng);
+   var theCentre = new google.maps.LatLng(centre.latitude, centre.longitude);
    var placesRequest = {
      location: theCentre,
      radius: centre.radius,// TODO handle the metric conversion between meteres and kilometeres
@@ -37,6 +37,7 @@ function initMap(mapContainer, centre, keyword, typeOfPlace, myLocation, partner
         listHtmlString += getDomForItem(place);
         console.log(place);
         $('#location-list').html(listHtmlString);
+        $('#location-list').listview('refresh');
         // If the request succeeds, draw the place location on
         // the map as a marker, and register an event to handle a
         // click on the marker.

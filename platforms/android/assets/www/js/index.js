@@ -159,14 +159,6 @@ function initHome() {
     });
   });
 
-  $('.ui-btn.ui-corner-all.impress-home-btn').off('click').on('click', function() {
-    $.mobile.pageContainer.pagecontainer('change', getCheckedURL('impress.html'), {
-      transition: 'flow',
-      reload    : true,
-      categoryId  : 6
-    });
-  });
-
   // if logged in show log out
   var isLoggedIn = window.localStorage.getItem('userAuth') && true;
   if(isLoggedIn) {
@@ -208,7 +200,9 @@ function getImpressData(userId, categoryId) {
         var myLocation = {lat: response.logged_user.user.home_latitude, lng: response.logged_user.user.home_longitude};
         var partnerLocation = {lat: response.partner.user.home_latitude , lng: response.partner.user.home_longitude };
         var partnerName = response.partner.user.first_name + ' ' + response.partner.user.last_name;
-        initMap(mapContainer, response.centre, response.keyword, response.typeOfPlace, myLocation, partnerLocation, partnerName);
+        $('#map-tab .map-tab-desc .map-place-type').html(response.centre.interested_places);
+        $('#map-tab .map-tab-desc .partner-name').html(partnerName);
+        initMap(mapContainer, response.centre, myLocation, partnerLocation, partnerName);
       }
     });
   }
