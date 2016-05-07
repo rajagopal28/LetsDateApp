@@ -159,14 +159,6 @@ function initHome() {
     });
   });
 
-  $('.ui-btn.ui-corner-all.impress-home-btn').off('click').on('click', function() {
-    $.mobile.pageContainer.pagecontainer('change', getCheckedURL('impress.html'), {
-      transition: 'flow',
-      reload    : true,
-      categoryId  : 6
-    });
-  });
-
   // if logged in show log out
   var isLoggedIn = window.localStorage.getItem('userAuth') && true;
   if(isLoggedIn) {
