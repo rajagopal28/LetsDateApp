@@ -5,6 +5,12 @@
     },
     "config_munge": {
         "files": {
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/manifest/application": [],
+                    "/manifest": []
+                }
+            },
             "res/xml/config.xml": {
                 "parents": {
                     "/*": [

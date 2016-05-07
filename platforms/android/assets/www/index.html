@@ -32,36 +32,34 @@ Some notes:
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com/ https://maps.gstatic.com/ https://mts0.googleapis.com/ 'unsafe-inline' 'unsafe-eval'">
     <link rel="stylesheet" type="text/css" href="vendor/css/jquery.mobile-1.4.5.min.css">
+
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Hello World</title>
+    <title>Lets Date</title>
 </head>
 <body>
-    <div data-role="page" thid="users-list" data-theme="a" id="demo-page" class="my-page" data-url="demo-page">
-        <div data-role="header">
-            <h1>Users</h1>
-            <a href="./" data-shadow="false" data-iconshadow="false" data-icon="carat-l" data-iconpos="notext" data-rel="back" data-ajax="false">Back</a></div>
-            <div role="main" class="ui-content">
-                <ul data-role="listview" class="user-list" data-inset="true" data-divider-theme="a">
-                    <li>
-                        <a href="#"> 
-                            <h2>WP 7.8</h2>
-                            <p>Nokia rolls out WP 7.8 to Lumia 800</p>
-                            <p class="ui-li-aside">Windows Phone</p>
-                        </a>
-                    </li>
-                    <li><a href="#">Audi</a></li>
-                    <li><a href="#">BMW</a></li>
-                    <li><a href="#">Cadillac</a></li>
-                    <li><a href="#">Ferrari</a></li>
-                </ul>
-            </div>
-            <div data-role="footer">Copyright DextrousInc</div>
-        </div>
+  <div data-role="page" id="home" data-theme="a" >
+    <div data-role="header">
+      <h1>Home</h1>
+    </div>
+      <div role="main" class="ui-content">
+        <button class="ui-btn ui-corner-all user-list-btn">Users</button>
+        <button class="ui-btn ui-corner-all login-btn">Login</button>
+        <button class="ui-btn ui-corner-all impress-home-btn">Impress</button>
+        <button class="ui-btn ui-corner-all date-list-btn">Date</button>
+        <button class="ui-btn ui-corner-all logout-btn">Logout</button>
+      </div>
+      <div data-role="footer"><h2>Copyright DextrousInc</h2></div>
+  </div>
+
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="vendor/js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="vendor/js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="vendor/js/tab-view-fix.js"></script>
     <script type="text/javascript" src="js/services/user-service.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/map-functions.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoGA2VufIq_scXFZmqotG2l5vpQKXPTdU&libraries=places&sensor=false&callback=onMapsApiLoaded" async defer></script>
 </body>
 </html>
