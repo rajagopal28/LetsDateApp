@@ -101,5 +101,5 @@ h1 {
 }
 
 .pointer-default {
-    pointer : default;
+    pointer-events : none;
 }

@@ -1,6 +1,6 @@
 var UserService = function() {
 	var url;
-	var DEFAULT_API_END_POINT = "http://localhost:3000/api";
+	var DEFAULT_API_END_POINT = "http://letsdate-crackerjack.rhcloud/api";
 	this.initialize = function(serviceURL) {
 	    url = serviceURL ? serviceURL : DEFAULT_API_END_POINT;
 	    var deferred = $.Deferred();
