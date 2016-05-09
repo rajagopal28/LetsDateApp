@@ -77,7 +77,9 @@
         });
     }
   function getUserInterests(userId) {
-        service.getUserInterests(userId).done(function (userInterests) {
+      if(window.localStorage && window.localStorage.getItem('userAuth')) {
+        var currentUserId = window.localStorage.getItem('userAuth');
+        service.getUserInterests(userId, currentUserId).done(function (userInterests) {
             $('.user-interests-collapse').empty();
             $.each(userInterests, function(key, value){
               var template ='<div class="user-interests-collapse-item" data-role="collapsible">'
@@ -85,8 +87,16 @@
                       + value.name
                       + '</h3>'
                       + '<p><ul class="listview" data-role="listview">';
-                      $.each(value.value, function(index, item){
-                        template += '<li>'+item+'</li>';
+                      $.each(value.values, function(index, item){
+                        template += '<li><a href="#"';
+                        if(item.is_common) {
+                          template += 'class="ui-btn ui-icon-star ui-btn-icon-left"';
+                        } else {
+                          template += 'class="ui-btn"';
+                        }
+                        template += '>'
+                                 + item.name
+                                 +'</a></li>';
                       });      
                       template+= '</ul></p>'
                               +'<a class="impress-btn ui-shadow ui-btn ui-corner-all"'
@@ -109,6 +119,7 @@
             $('.user-interests-collapse-item.listview').listview('refresh');
             $(".user-interests-collapse").trigger("create");
         });
+      }
     }
   function showLogoutModal(){
     $.mobile.pageContainer.pagecontainer('change', getCheckedURL('logout.html'), {

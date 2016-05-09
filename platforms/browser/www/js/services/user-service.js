@@ -1,6 +1,6 @@
 var UserService = function() {
 	var url;
-	var DEFAULT_API_END_POINT = "http://letsdate-crackerjack.rhcloud.com/api";
+	var DEFAULT_API_END_POINT = "http://localhost:3000/api";
 	this.initialize = function(serviceURL) {
 	    url = serviceURL ? serviceURL : DEFAULT_API_END_POINT;
 	    var deferred = $.Deferred();
@@ -13,8 +13,8 @@ var UserService = function() {
 	this.getUserDates = function(userId) {
 		return $.ajax({url: url+'/dates/all/'+userId, method: 'GET'});
 	};
-	this.getUserInterests = function(userId){
-		return $.ajax({url: url+'/users/interests/all/'+userId, method: 'GET'});
+	this.getUserInterests = function(userId, currentUserId){
+		return $.ajax({url: url+'/users/interests/all/'+userId, data : {userId : currentUserId}, method: 'GET'});
 	};
 	this.getImpressData = function(currentUserId, partnerId, categoryId){
 		return $.ajax({url: url+'/users/interests/impress/'+partnerId+'/'+categoryId, data : {userId : currentUserId}, method: 'GET'});
